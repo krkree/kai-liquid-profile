@@ -1,9 +1,40 @@
 const links = [
-  { label: "作品集", hint: "Selected work", icon: "作", href: "#" },
-  { label: "小红书", hint: "Notes & life", icon: "红", href: "#" },
-  { label: "即刻", hint: "Daily thoughts", icon: "即", href: "#" },
-  { label: "GitHub", hint: "Code & experiments", icon: "⌘", href: "#" },
-  { label: "联系我", hint: "Say hello", icon: "信", href: "mailto:hello@example.com" },
+  {
+    label: "哔哩哔哩",
+    hint: "@KrKree",
+    icon: "bilibili",
+    href: "https://space.bilibili.com/107947700",
+  },
+  {
+    label: "X / Twitter",
+    hint: "@krkree113",
+    icon: "x",
+    href: "https://x.com/krkree113",
+  },
+  {
+    label: "小红书",
+    hint: "KrKree",
+    icon: "xiaohongshu",
+    href: "https://www.xiaohongshu.com/user/profile/66b304bd000000001d020da6",
+  },
+  {
+    label: "QQ",
+    hint: "3232612893",
+    icon: "qq",
+    href: "https://wpa.qq.com/msgrd?v=3&uin=3232612893&site=qq&menu=yes",
+  },
+  {
+    label: "电子邮箱",
+    hint: "hughsupre@gmail.com",
+    icon: "mail",
+    href: "mailto:hughsupre@gmail.com",
+  },
+  {
+    label: "个人网站",
+    hint: "krkree.com",
+    icon: "globe",
+    href: "https://krkree.com",
+  },
 ];
 
 export default function Home() {
@@ -17,28 +48,32 @@ export default function Home() {
         <div className="liquid-shine" aria-hidden="true" />
 
         <header className="topbar">
-          <span className="handle">@KAI</span>
+          <span className="handle">@KrKree</span>
           <button className="round-button" type="button" aria-label="更多选项">
             <span>•••</span>
           </button>
         </header>
 
         <div className="identity">
-          <div className="avatar-shell" aria-hidden="true">
-            <div className="avatar">K</div>
+          <div className="avatar-shell">
+            <img className="avatar-photo" src="/avatar.png" alt="KrKree 的头像" />
           </div>
-          <p className="eyebrow">独立创作者 · 产品设计师</p>
-          <h1 id="profile-name">KAI</h1>
-          <p className="bio">把复杂的问题做成简单、好用、有人情味的产品。</p>
+          <h1 id="profile-name">KrKree</h1>
+          <p className="bio">葛城リーリヤP担当、旮旯给木萌新</p>
         </div>
 
         <nav aria-label="我的链接">
           <ul className="link-list">
             {links.map((link, index) => (
               <li key={link.label}>
-                <a className="link-card" href={link.href}>
-                  <span className="link-icon" aria-hidden="true">
-                    {link.icon}
+                <a
+                  className="link-card"
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                >
+                  <span className={`link-icon icon-${link.icon}`} aria-hidden="true">
+                    <span className="icon-mark" />
                   </span>
                   <span className="link-copy">
                     <strong>{link.label}</strong>
@@ -55,14 +90,7 @@ export default function Home() {
             ))}
           </ul>
         </nav>
-
-        <footer className="status">
-          <span className="status-dot" aria-hidden="true" />
-          <span>目前接受 2026 年秋季合作</span>
-        </footer>
       </section>
-
-      <p className="background-note">背景图预留：public/background.jpg</p>
     </main>
   );
 }

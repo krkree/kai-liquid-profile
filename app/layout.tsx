@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "KAI · 独立创作者与产品设计师",
-  description: "KAI 的个人信息、作品与社交链接聚合页。",
+  title: "KrKree · Links",
+  description: "KrKree 的个人信息与社交链接聚合页。",
   icons: {
     icon: "/favicon.svg",
     shortcut: "/favicon.svg",
